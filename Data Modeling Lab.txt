@@ -1,0 +1,106 @@
+﻿users can sign into the app with their email and password
+users can create recipes with ingredients and instructions
+recipes can be marked as public or private
+users can view other people’s recipes
+ingredients from recipes can be added to user’s grocery lists
+users can create their own occasions and assign recipes to occasions
+
+
+Brainstorm:
+Usernames
+Passwords
+Recipes
+Posts
+Groups
+
+
+
+
+Table Ideas:
+Users: Name, Password, Email
+Posts(recipes): Stores post info: title, difficulty, instructions, ingredients
+Groups: Stores info about group
+Shopping List: stores ingredients
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Columns:
+
+
+Users
+        UserID - integer
+        Password- varchar
+        Email- varchar
+        Username- varchar
+        Recipes- text
+CREATE TABLE users (
+  userID SERIAL PRIMARY KEY,
+  password VARCHAR(25),
+  email VARCHAR(50),
+  username VARCHAR(25),
+  recipes TEXT
+  );
+
+
+
+
+Shopping List
+        Ingredients- text
+        Shopping list- text
+
+
+CREATE TABLE list (
+  ingredients TEXT,
+  list TEXT
+  );
+
+
+
+
+
+
+
+
+
+
+
+
+Recipes
+        Ingredients- varchar
+        Instructions- varchar
+        User id- integer
+        Occasion- varchar
+CREATE TABLE recipes (
+  ingredients TEXT,
+  instructions TEXT,
+  userID INT REFERENCES users(userID),
+  occasion VARCHAR(50)
+  );
+
+
+Groups
+        userId- integer
+        Group Id- 
+CREATE TABLE groups (
+userID INT REFERENCES users (userID),
+groupID SERIAL PRIMARY KEY
+);
